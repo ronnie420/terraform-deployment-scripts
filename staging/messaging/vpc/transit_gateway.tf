@@ -1,0 +1,28 @@
+# Transit gateway Attachments
+resource "aws_ec2_transit_gateway_vpc_attachment" "cde_vpc" {
+  transit_gateway_id = "${var.TRANSIT_GATEWAY_ID}"
+  vpc_id = "${aws_vpc.CDE_VPC.id}"
+  dns_support = "enable"
+  ipv6_support = "disable"
+  transit_gateway_default_route_table_association  = true
+  transit_gateway_default_route_table_propagation  = true
+  subnet_ids = ["${aws_subnet.CDE_ELB_AZ1.id}", "${aws_subnet.CDE_ELB_AZ2.id}"]
+tags =  {
+    Name = "Att_to_cde_vpc"
+}
+}
+# Transit gateway Attachments
+resource "aws_ec2_transit_gateway_vpc_attachment" "cde_tokens_vpc" {
+  transit_gateway_id = "${var.TRANSIT_GATEWAY_ID}"
+  vpc_id = "${aws_vpc.CDE_TOKENS_VPC.id}"
+  dns_support = "enable"
+  ipv6_support = "disable"
+  transit_gateway_default_route_table_association  = true
+  transit_gateway_default_route_table_propagation  = true
+  subnet_ids = ["${aws_subnet.CDE_TOKENS_ELB_AZ1.id}", "${aws_subnet.CDE_TOKENS_ELB_AZ2.id}"]
+tags =  {
+    Name = "Att_to_cde_tokens_vpc"
+
+}
+
+}

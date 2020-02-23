@@ -1,0 +1,21 @@
+resource "aws_vpc_peering_connection" "cde_tokens_to_frankfurt" {
+  peer_owner_id = var.CDE_TOKENS_OWNER_ID
+    vpc_id        = var.CDE_TOKENS_VPC_ID
+      peer_vpc_id   = var.FRANKFURT_VPC_ID
+        peer_region   = var.staging_region
+
+        tags = {
+              Name = "frankfurt_hub_ireland_cd_TOKENSe"
+        }
+}
+
+resource "aws_vpc_peering_connection_accepter" "peer_cde_tokens" {
+    provider                  =  "aws.peer"
+    vpc_peering_connection_id = "${aws_vpc_peering_connection.cde_tokens_to_frankfurt.id}"
+    auto_accept               = true
+
+    tags = {
+       Name = "frankfurt_ireland_cde_tokens"
+       Side = "Accepter"
+    }
+}

@@ -1,0 +1,29 @@
+module "checkout-aurora-db" {
+  source  = "terraform-aws-modules/rds-aurora/aws"
+  version = "~> 2.0"
+
+  name                            = "checkout-aurora-db"
+
+  engine                          = "aurora"
+  engine_version                  = "9.6.9"
+
+  vpc_id                          = var.payments_vpc_id
+  subnets                         = [var.Payments_DB_AZ1, var.Payments_DB_AZ2]
+
+  replica_count                   = 1
+  allowed_security_groups         = [var.rds_checkout_sg]
+  instance_type                   = "db.r5.xlarge"
+  storage_encrypted               = true
+  apply_immediately               = true
+  monitoring_interval             = 10
+
+  db_parameter_group_name         = "default"
+  db_cluster_parameter_group_name = "default"
+
+tags                            = {
+    Environment = "production"
+    Terraform   = "true"
+  
+}
+
+}

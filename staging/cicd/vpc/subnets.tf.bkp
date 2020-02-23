@@ -1,0 +1,197 @@
+resource "aws_subnet" "CDE_ELB_AZ1" {
+  vpc_id     = "${aws_vpc.CDE_VPC.id}"
+  cidr_block = "${var.CDE_ELB_AZ1}"
+  availability_zone =   "${var.AZ1_NAME}"
+
+    tags = {
+        Name = "CDE_ELB_AZ1"
+    }
+}
+
+resource "aws_subnet" "CDE_ELB_AZ2" {
+  vpc_id     = "${aws_vpc.CDE_VPC.id}"
+  cidr_block = "${var.CDE_ELB_AZ2}"
+  availability_zone = "${var.AZ2_NAME}"
+    tags = {
+        Name = "CDE_ELB_AZ2"
+    }
+}
+
+resource "aws_subnet" "CDE_Backends_Apps_AZ1" {
+  vpc_id     = "${aws_vpc.CDE_VPC.id}"
+  cidr_block = "${var.CDE_Backends_Apps_AZ1}"
+  availability_zone = "${var.AZ1_NAME}"
+
+    tags = {
+        Name = "CDE_Backends_Apps_AZ1"
+    }
+}
+
+resource "aws_subnet" "CDE_Backends_Apps_AZ2" {
+  vpc_id     = "${aws_vpc.CDE_VPC.id}"
+  cidr_block = "${var.CDE_Backends_Apps_AZ2}"
+  availability_zone = "${var.AZ2_NAME}"
+
+    tags = {
+        Name = "CDE_Backends_Apps_AZ2"
+    }
+}
+
+resource "aws_subnet" "CDE_Web_Tools_AZ1" {
+  vpc_id     = "${aws_vpc.CDE_VPC.id}"
+  cidr_block = "${var.CDE_Web_Tools_AZ1}"
+  availability_zone = "${var.AZ1_NAME}"
+
+    tags = {
+        Name = "CDE_Web_Tools_AZ1"
+    }
+}
+
+resource "aws_subnet" "CDE_Web_Tools_AZ2" {
+  vpc_id     = "${aws_vpc.CDE_VPC.id}"
+  cidr_block = var.CDE_Web_Tools_AZ2
+  availability_zone = var.AZ2_NAME
+
+    tags = {
+        Name = "CDE_Web_Tools_AZ2"
+    }
+}
+
+resource "aws_subnet" "CDE_JD_Redis_MQ_AZ1" {
+  vpc_id     = "${aws_vpc.CDE_VPC.id}"
+  cidr_block = var.CDE_JD_Redis_MQ_AZ1
+  availability_zone = var.AZ1_NAME
+
+    tags = {
+        Name = "CDE_JD_Redis_MQ_AZ1"
+    }
+}
+
+resource "aws_subnet" "CDE_JD_Redis_MQ_AZ2" {
+  vpc_id     = "${aws_vpc.CDE_VPC.id}"
+  cidr_block = var.CDE_JD_Redis_MQ_AZ2
+  availability_zone = var.AZ2_NAME
+
+    tags = {
+        Name = "CDE_JD_Redis_MQ_AZ2"
+    }
+}
+
+resource "aws_subnet" "CDE_DB_AZ1" {
+  vpc_id     = "${aws_vpc.CDE_VPC.id}"
+  cidr_block = var.CDE_DB_AZ1
+  availability_zone = var.AZ1_NAME
+
+    tags = {
+        Name = "CDE_DB_AZ1"
+    }
+}
+
+resource "aws_subnet" "CDE_DB_AZ2" {
+  vpc_id     = "${aws_vpc.CDE_VPC.id}"
+  cidr_block = var.CDE_DB_AZ2
+  availability_zone = var.AZ2_NAME
+
+    tags = {
+        Name = "CDE_DB_AZ2"
+    }
+}
+resource "aws_subnet" "CDE_TOKENS_ELB_AZ1" {
+  vpc_id     = "${aws_vpc.CDE_TOKENS_VPC.id}"
+  cidr_block = var.CDE_TOKENS_ELB_AZ1
+  availability_zone = var.AZ1_NAME
+
+    tags = {
+        Name = "CDE_TOKENS_ELB_AZ1"
+    }
+}
+
+resource "aws_subnet" "CDE_TOKENS_ELB_AZ2" {
+  vpc_id     = "${aws_vpc.CDE_TOKENS_VPC.id}"
+  cidr_block = var.CDE_TOKENS_ELB_AZ2
+  availability_zone = var.AZ2_NAME
+
+    tags = {
+        Name = "CDE_TOKENS_ELB_AZ2"
+    }
+}
+
+resource "aws_subnet" "CDE_TOKENS_Backends_Apps_AZ1" {
+  vpc_id     = "${aws_vpc.CDE_TOKENS_VPC.id}"
+  cidr_block = var.CDE_TOKENS_Backends_Apps_AZ1
+  availability_zone = var.AZ1_NAME
+
+    tags = {
+        Name = "CDE_TOKENS_Backends_Apps_AZ1"
+    }
+}
+
+resource "aws_subnet" "CDE_TOKENS_Backends_Apps_AZ2" {
+  vpc_id     = "${aws_vpc.CDE_TOKENS_VPC.id}"
+  cidr_block = var.CDE_TOKENS_Backends_Apps_AZ2
+  availability_zone = var.AZ2_NAME
+
+    tags = {
+        Name = "CDE_TOKENS_Backends_Apps_AZ2"
+    }
+}
+
+resource "aws_subnet" "CDE_TOKENS_Web_Tools_AZ1" {
+  vpc_id     = "${aws_vpc.CDE_TOKENS_VPC.id}"
+  cidr_block = var.CDE_TOKENS_Web_Tools_AZ1
+  availability_zone = var.AZ1_NAME
+
+    tags = {
+        Name = "CDE_TOKENS_Web_Tools_AZ1"
+    }
+}
+
+resource "aws_subnet" "CDE_TOKENS_Web_Tools_AZ2" {
+  vpc_id     = "${aws_vpc.CDE_TOKENS_VPC.id}"
+  cidr_block = var.CDE_TOKENS_Web_Tools_AZ2
+  availability_zone = var.AZ2_NAME
+
+    tags = {
+        Name = "CDE_TOKENS_Web_Tools_AZ2"
+    }
+}
+
+resource "aws_subnet" "CDE_TOKENS_JD_Redis_MQ_AZ1" {
+  vpc_id     = "${aws_vpc.CDE_TOKENS_VPC.id}"
+  cidr_block = var.CDE_TOKENS_JD_Redis_MQ_AZ1
+  availability_zone = var.AZ1_NAME
+
+    tags = {
+        Name = "CDE_TOKENS_JD_Redis_MQ_AZ1"
+    }
+}
+
+resource "aws_subnet" "CDE_TOKENS_JD_Redis_MQ_AZ2" {
+  vpc_id     = "${aws_vpc.CDE_TOKENS_VPC.id}"
+  cidr_block = var.CDE_TOKENS_JD_Redis_MQ_AZ2
+  availability_zone = var.AZ2_NAME
+
+    tags = {
+        Name = "CDE_TOKENS_JD_Redis_MQ_AZ2"
+    }
+}
+
+resource "aws_subnet" "CDE_TOKENS_DB_AZ1" {
+  vpc_id     = "${aws_vpc.CDE_TOKENS_VPC.id}"
+  cidr_block = var.CDE_TOKENS_DB_AZ1
+  availability_zone = var.AZ1_NAME
+
+    tags = {
+        Name = "CDE_TOKENS_DB_AZ1"
+    }
+}
+
+resource "aws_subnet" "CDE_TOKENS_DB_AZ2" {
+  vpc_id     = "${aws_vpc.CDE_TOKENS_VPC.id}"
+  cidr_block = var.CDE_TOKENS_DB_AZ2
+  availability_zone = var.AZ2_NAME
+
+    tags = {
+        Name = "CDE_TOKENS_DB_AZ2"
+    }
+}
